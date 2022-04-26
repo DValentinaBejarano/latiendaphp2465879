@@ -18,8 +18,50 @@ Route::get('/', function () {
 });
 
 //primera ruta
-// get : mostrar por el navegador, metodo de la clase Route
+//get : mostrar por el navegador, metodo de la clase Route
 //paremetros: 1, nombre de la ruta
 
-Route::get('hola', function(){ echo "mi primera ruta en php"; });
+Route::get('paises', function(){
+    $paises=[
+        "Colombia"=> [
+        "Capital"=> "Bogota",
+        "moneda"=> "Peso",
+        "poblacion"=> "51.6",
+        "ciudades" => [
+            "Medellín",
+            "Cali",
+            "Barranquilla"
+        ]
+    ],
+
+        "Peru"=> [
+        "Capital"=> "Lima",
+        "moneda"=>"Sol",
+        "poblacion"=> "32.97",
+        "ciudades" => [
+            "Ica",
+            "Cusco",
+            "Chiclayo"
+        ]
+    ],
+
+        "Paraguay"=>[
+        "Capital"=> "Asuncion",
+        "moneda"=> "Guarani paraguayo",
+        "poblacion"=>"7.133",
+        "ciudades" => [
+            "Boquerón",
+            "Caaguazú",
+            "Caazapa"
+        ]
+      ]
+    ];
+  
+//Mostrar en la vista 
+return view('paises')
+->with("paises" , $paises);
+
+
+});
+
 
