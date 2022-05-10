@@ -64,4 +64,8 @@ return view('paises')
 
 });
 
+route::get('prueba', function(){
+return view('productos.new');
+});
+
 
