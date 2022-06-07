@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,6 +72,8 @@ return view('productos.new');
 //Producto
 
 Route::resource('productos' , ProductoController::class);
+Route::resource('cart' , CartController::class, [ 'only' =>['store', 'destroy' , 'index']]);
+
 
 
 
