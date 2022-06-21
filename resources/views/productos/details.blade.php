@@ -6,6 +6,21 @@
 </div>
 <div class="row">
     <div class="col s8">
+    <div class="card">
+                <div class="card-image">
+                    <style>
+                        .card
+                        {
+                            width: 60%;
+                        }
+                    </style>
+                    @if($producto->imagen === null)
+                        <img src="{{ asset('img/No-disponible.jpg') }}" alt="">
+                    @else
+                        <img src="{{ asset('img/'.$producto->imagen) }}" alt="">
+                    @endif
+                </div> 
+            </div>
     <h3>Marca: {{ $producto->marca->nombre }}</h3>
     <ul>
         <li>Precio: ${{ $producto->precio }}</li>
@@ -18,6 +33,9 @@
             <div class="row">
                 <form action="{{ route('cart.store') }}" method="POST"> @csrf 
                     <input type="hidden" name="prod_id" value="4">
+                    <input type="hidden" name="prod_id" value="{{ $producto->id }}">
+                    <input type="hidden" name="prod_nom" value="{{ $producto->nombre }}">
+                    <input type="hidden" name="precio" value="{{ $producto->precio }}">
                     <div class="row">
                         <div class="col s4 input-field">
                             <select name="cantidad" id="cantidad">
